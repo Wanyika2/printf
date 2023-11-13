@@ -41,5 +41,7 @@ int print_37(void);
 int print_c(va_list val);
 int print_s(va_list val);
 int _putchar(char c);
+void print_rot13(const char *str);
+int print_rot13(va_list list, flags_t *flags);
 
 #endif
