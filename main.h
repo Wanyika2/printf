@@ -24,13 +24,6 @@ typedef struct format
  * @c: character on test
  * @f: integer pointer
  * @ap: argument
- */
-typedef struct printHandler
-{
-	char c;
-	int (*f)(va_list ap, flags_t *f);
-} ph;
-/**
  * struct flags - contains flags
  * @add: flag for the '+' character
  * @space: flag for ' ' character
@@ -41,7 +34,14 @@ typedef struct flags
 	int add;
 	int space;
 	int hash;
-}flags_t;
+} flags_t;
+
+
+typedef struct printHandler
+{
+	char c;
+   	int (*f)(va_list ap, flags_t *f);
+} ph;
 
 int rev_string(char *s);
 int *_strcpy(char *dest, char *src);
@@ -64,8 +64,7 @@ int print_37(void);
 int print_c(va_list val);
 int print_s(va_list val);
 int _putchar(char c);
-void print_rot13(const char *str);
 int width_handler(const char *format, int *b, va_list list);
 int handle_precision(const char *format, int j, va_list list);
-int print_rot13(va_list list, flags_t *flag);
+int print_rot13(va_list args);
 #endif

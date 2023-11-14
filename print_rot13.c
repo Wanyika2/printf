@@ -1,28 +1,5 @@
 #include "main.h"
-/**
- * print_rot13 - prints a rotated string
- * @list: argument list
- * @f: pointer to the struct flags
- *
- * Return: number of characters processed
- */
-int print_rot13(va_list list, flags_t *f)
-{
-	int i;
-	char rot13[] = "poiuytrewqasdfghjklmnbvcxzPOIUYTREWQASDFGHJKLMNBVCXZ";
-	char ROT13[] = "POIUYTREWQASDFGHJKLMNBVCXZpoiuytrewqasdfghjklmnbvcxz";
-	const char *input = va_arg(list, const char *);
 
-	if (input == NULL)
-	{
-		return (0);
-	}
-	for (i = 0; input[i] != '\0'; i++)
-	{
-		putchar(*str);
-	}
-	str++;
-}
 /**
  * print_rot13 - prints strings using rot13
  * @args: prints arguments
@@ -31,28 +8,30 @@ int print_rot13(va_list list, flags_t *f)
  */
 int print_rot13(va_list args)
 {
-	int p, q;
-	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char ROT13[] = "mnhvtvcxjdaezybditqpruksgfMNHVTVCXJDAEZYBDITQPRUKSGF";
-	char *s = va_arg(args, char *);
-		char c = input[i];
+	 int i;
+	 char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	 char ROT13[] = "mnhvtvcxjdaezybditqpruksgfMNHVTVCXJDAEZYBDITQPRUKSGF";
+	 char *s = va_arg(args, char *);
 
-		if ((c >= 'a' && c <= 'z') ||
-				(c >= 'A' && c <= 'Z'))
-		{
-			char base = (c >= 'a' &&
-					c <= 'z') ? 'a' : 'A';
-			_putchar((c - base + 13) % 26 + base);
-		}
-		else
-		{
-			for (i = 0; i <= 52; i++)
-			{
-				if (c == rot13[i])
-				_putchar (ROT13[i]);
-			_putchar(c);
-			}
-		}
-	}
-	return (i);
+	 for (i = 0; s[i] != '\0'; i++)
+	 {
+		 char c = s[i];
+
+		 if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		 {
+			 char base = (c >= 'a' && c <= 'z') ? 'a' : 'A';
+			 _putchar((c - base + 13) % 26 + base);
+		 }
+		 else
+		 {
+			 int j;
+			 for (j = 0; j <= 52; j++)
+			 {
+				 if (c == rot13[j])
+					 _putchar(ROT13[j]);
+			 }
+			 _putchar(c);
+		 }
+	 }
+	 return i;
 }

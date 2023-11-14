@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print - selects the right printing function
  * depending on the specifier passed to printf
@@ -8,22 +9,21 @@
  */
 int (*print(char k))(va_list, flags_t *)
 {
-	ph func[] =
+    ph func[] = {
+        {'i', print_int},
+        {'d', print_int},
+        {'u', print_unsigned},
+        {'o', print_oct},
+        {'x', print_hex},
+        {'X', print_HEX_extra},
+    };
+    int flags = 6;
 
-	{
-		{'i', print_int},
-		{'d', print_int},
-		{'u', print_unsigned},
-		{'o', print_octal},
-		{'x', print_hex},
-		{'X', print-HEX_extra},
-	};
-	int flags = 6;
+    int p;
 
-	int p;
+    for (p = 0; p < flags; p++)
+        if (func[p].c == k)
+            return func[p].f;
 
-	for (p = 0; p < flags; p++)
-		if (func[p].c == s)
-			return (func[p].f);
-	return (NULL);
+    return (NULL);
 }
