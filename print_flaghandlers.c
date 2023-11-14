@@ -26,6 +26,14 @@ int flag_handlers(char k, flags_t *ptr)
 			f->hash = 1;
 			j = 1;
 			break;
+		case '0':
+			f->zero = 1;
+			j = 1;
+			break;
+		case '-':
+			f->minus = 1;
+			j = 1;
+			break;
 	}
 	return (j);
 }
