@@ -1,3 +1,4 @@
+#define UNUSED(x) (void)(x)
 #include "main.h"
 
 /**
@@ -5,7 +6,7 @@
  * @val: arguments.
  * Return: counter.
  */
-int print_HEX(va_list val)
+int print_HEX(va_list val, flags_t *f)
 {
 	int i;
 	int *array;
@@ -13,6 +14,7 @@ int print_HEX(va_list val)
 	unsigned int num = va_arg(val, unsigned int);
 	unsigned int tem = num;
 
+	UNUSED(f);
 	while (num / 16 != 0)
 	{
 		num /= 16;

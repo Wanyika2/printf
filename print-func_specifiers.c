@@ -7,23 +7,25 @@
  *
  * Return: pointer to the matching printing function
  */
+
 int (*print(char k))(va_list, flags_t *)
 {
     ph func[] = {
-        {'i', print_int},
-        {'d', print_int},
-        {'u', print_unsigned},
-        {'o', print_oct},
-        {'x', print_hex},
-        {'X', print_HEX_extra},
-    };
-    int flags = 6;
 
-    int p;
+	{'i', print_i},
+	{'d', print_d},
+	{'u', print_unsigned},
+	{'o', print_oct},
+	{'x', print_hex},
+	{'X', print_HEX},
 
-    for (p = 0; p < flags; p++)
-        if (func[p].c == k)
-            return func[p].f;
+	};
+	int flags = 6;
+	int p;
 
-    return (NULL);
+	for (p = 0; p < flags; p++)
+	if (func[p].c == k)
+	return func[p].f;
+
+	return (NULL);
 }

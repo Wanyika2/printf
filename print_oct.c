@@ -1,3 +1,4 @@
+#define UNUSED(x) (void)(x)
 #include "main.h"
 
 /**
@@ -5,14 +6,16 @@
  * @val: arguments.
  * Return: counter.
  */
-int print_oct(va_list val)
+int print_oct(va_list val, flags_t *f)
 {
+
 	int i;
 	int *array;
 	int counter = 0;
 	unsigned int num = va_arg(val, unsigned int);
 	unsigned int tem = num;
 
+	UNUSED(f);
 	while (num / 8 != 0)
 	{
 		num /= 8;

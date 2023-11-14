@@ -1,15 +1,17 @@
+#define UNUSED(x) (void)(x)
 #include "main.h"
 /**
  * print_i - prints integer
  * @args: argument to print
  * Return: integer
  */
-int print_i(va_list args)
+int print_i(va_list args, flags_t *f)
 {
 	int n = va_arg(args, int);
 	int num, last = n % 10, digit, exp = 1;
 	int  i = 1;
 
+	UNUSED(f);
 	n = n / 10;
 	num = n;
 
@@ -49,13 +51,14 @@ int print_i(va_list args)
  * Return: integer
  */
 
-int print_d(va_list args)
+int print_d(va_list args, flags_t *f)
 {
 	int n = va_arg(args, int);
 	int num, last = n % 10, digit;
 	int  i = 1;
 	int exp = 1;
 
+	UNUSED(f);
 	n = n / 10;
 	num = n;
 

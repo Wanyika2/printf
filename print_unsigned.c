@@ -1,15 +1,18 @@
+#define UNUSED(x) (void)(x)
 #include "main.h"
 /**
  * print_unsigned - prints integer
  * @args: argument to print
  * Return: integer
  */
-int print_unsigned(va_list args)
+int print_unsigned(va_list args, flags_t *f)
 {
+
 	unsigned int n = va_arg(args, unsigned int);
 	int num, last = n % 10, digit, exp = 1;
 	int  i = 1;
 
+	UNUSED(f);
 	n = n / 10;
 	num = n;
 

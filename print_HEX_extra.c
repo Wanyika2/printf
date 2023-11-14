@@ -1,3 +1,5 @@
+#ifndef PRINT_HEX_H
+#define PRINT_HEX_H
 #include "main.h"
 
 /**
@@ -34,3 +36,4 @@ int print_HEX_extra(unsigned int num)
 	free(array);
 	return (counter);
 }
+#endif /* PRINT_HEX_H */
