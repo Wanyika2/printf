@@ -10,26 +10,16 @@
  */
 int width_handler(const char *format, int *b, va_list list)
 {
-	int j;
 	int width = 0;
 
-	for (j = *b + 1; format[j] != '\0'; j++)
+	while (format[*b} >= '0' && format[*b] <= '9')
 	{
-		if (is_digit(format[j]))
-		{
-			width *= 10;
-			width += format[j] - '0';
-		}
-		else if (format[j] == '*')
-		{
-			j++;
-			width = va_arg(list, int);
-			break;
-		}
-		else
-			break;
+		width = width * 10 + (format[(*b)++] - '0')
 	}
-	*i = j - 1;
-
+	if (format[*b] == '*')
+	{
+		width = va_arg(list, int);
+		(*b)++;
+	}
 	return (width);
 }
