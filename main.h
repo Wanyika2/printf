@@ -18,6 +18,17 @@ typedef struct format
 	char *ph;
 	int (*function)();
 } convert;
+/**
+ * printHandler - struct that handles flags
+ * @c: character on test
+ * @f: integer pointer
+ * @ap: argument
+ */
+typedef struct printHandler
+{
+	char c;
+	int (*f)(va_list ap, flags_t *f);
+} ph;
 
 int rev_string(char *s);
 int *_strcpy(char *dest, char *src);
@@ -43,5 +54,7 @@ int print_s(va_list val);
 int _putchar(char c);
 void print_rot13(const char *str);
 int print_rot13(va_list list, flags_t *flags);
+int width_handler(const char *format, int *b, va_list list);
+int handle_precision(const char *format, int j, va_list list);
 
 #endif
