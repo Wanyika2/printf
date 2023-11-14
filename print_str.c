@@ -2,7 +2,7 @@
 #include "main.h"
 /**
  * print_s - print a string.
- * @val: argumen t.
+ * @val: argument.
  * Return: the length of the string.
  */
 
