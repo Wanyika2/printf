@@ -4,6 +4,7 @@
 /**
  * print_hex - prints an hexadecimal number.
  * @val: arguments.
+ * @f: unused.
  * Return: counter.
  */
 int print_hex(va_list val, flags_t *f)

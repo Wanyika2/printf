@@ -20,14 +20,12 @@ typedef struct format
 	int (*function)();
 } convert;
 /**
- * printHandler - struct that handles flags
- * @c: character on test
- * @f: integer pointer
- * @ap: argument
  * struct flags - contains flags
  * @add: flag for the '+' character
  * @space: flag for ' ' character
  * @hash: flag for '#' character
+ * @zero: flag for '0' character
+ * @minus: flag for '-' character
  */
 typedef struct flags
 {
@@ -37,12 +35,15 @@ typedef struct flags
 	int zero;
 	int minus;
 } flags_t;
-
-
+/**
+ * struct printHandler - struct that handles flags
+ * @c: character on test
+ * @f: integer pointer
+ */
 typedef struct printHandler
 {
 	char c;
-   	int (*f)(va_list ap, flags_t *f);
+	int (*f)(va_list ap, flags_t *f);
 } ph;
 
 int rev_string(char *s);

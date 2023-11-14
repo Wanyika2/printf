@@ -4,6 +4,7 @@
 /**
  * print_oct - prints an octal number.
  * @val: arguments.
+ * @f: unused.
  * Return: counter.
  */
 int print_oct(va_list val, flags_t *f)

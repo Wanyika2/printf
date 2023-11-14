@@ -21,5 +21,5 @@ int width_handler(const char *format, int *b, va_list list)
 	width = va_arg(list, int);
 	(*b)++;
 	}
-	return width;
+	return (width);
 }

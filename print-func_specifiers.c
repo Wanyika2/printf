@@ -10,7 +10,7 @@
 
 int (*print(char k))(va_list, flags_t *)
 {
-    ph func[] = {
+	ph func[] = {
 
 	{'i', print_i},
 	{'d', print_d},
@@ -25,7 +25,7 @@ int (*print(char k))(va_list, flags_t *)
 
 	for (p = 0; p < flags; p++)
 	if (func[p].c == k)
-	return func[p].f;
+	return (func[p].f);
 
 	return (NULL);
 }

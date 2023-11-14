@@ -3,6 +3,7 @@
 /**
  * print_i - prints integer
  * @args: argument to print
+ * @f: unused.
  * Return: integer
  */
 int print_i(va_list args, flags_t *f)
@@ -48,6 +49,7 @@ int print_i(va_list args, flags_t *f)
 /**
  * print_d - prints decimal
  * @args: argument to print
+ * @f: unused.
  * Return: integer
  */
 
