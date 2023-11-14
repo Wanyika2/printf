@@ -24,17 +24,16 @@ void print_rot13(const char *str)
 }
 /**
  * print_rot13 - prints strings using rot13
- * @list: list of arguments
- * @flags: pointer to struct flags
+ * @args: prints arguments
  *
  * Return: length of printed string
  */
-int print_rot13(va_list list, flags_t *flags)
+int print_rot13(va_list args)
 {
 	int p, q;
 	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char ROT13[] = "mnhvtvcxjdaezybditqpruksgfMNHVTVCXJDAEZYBDITQPRUKSGF";
-	char *s = va_arg(list, char *);
+	char *s = va_arg(args, char *);
 
 	for (q = 0; s[q]; q++)
 	{
