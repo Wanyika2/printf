@@ -6,7 +6,7 @@
  *
  * Return: pointer to the matching printing function
  */
-int (*print(char k))(va_list, flats_t *)
+int (*print(char k))(va_list, flags_t *)
 {
 	ph func[] =
 
@@ -17,16 +17,8 @@ int (*print(char k))(va_list, flats_t *)
 		{'o', print_octal},
 		{'x', print_hex},
 		{'X', print-HEX_extra},
-		{'r', print_rev},
-		{'R', print_rot13},
-		{'s', print_string},
-		{'b', print_binary},
-		{'S', print-exc_string},
-		{'p', print_address},
-		{'%', print_percent},
-		{'c', print_char}
 	};
-	int flags = 14;
+	int flags = 6;
 
 	int p;
 

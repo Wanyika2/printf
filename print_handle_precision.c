@@ -9,31 +9,28 @@
  */
 int handle_precision(const char *format, int j, va_list list)
 {
-	int i = *j = 1;
-	int prec = -1;
+	int precision = -1;
 
-	if (format[i] != '.')
-		return (prec);
-
-	prec = 0;
-
-	for (i += 1; format[i] != '\0'; i++)
+	if (format[j] == '.')
 	{
-		if (is_digit(format[i]))
+		j++;
+
+		if (format[j] == '*')
 		{
-			prec *= 10;
-			prec += format[i] - '0';
-		}
-		else if (format[i] == '*')
-		{
-			i++;
-			prec = va_arg(list, int);
-			break;
+			precision = va_arg(
+					list, int);
+			j++;
 		}
 		else
-			break;
+		{
+			precision = 0;
+			while (format[j] >= '0' &&
+					format[j] <= '9')
+			{
+				precision = precision * 10
+					+ (format[j++] - '0');
+			}
+		}
 	}
-	*j = i - 1;
-
-	return (prec);
+	return (precision);
 }

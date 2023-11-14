@@ -1,22 +1,23 @@
 #include "main.h"
-#include <stdio.h>
 /**
- * print_rot13 - function that prints rot 13'ed
- * @str: points to the first character of null-terminated string
+ * print_rot13 - prints a rotated string
+ * @list: argument list
+ * @f: pointer to the struct flags
  *
- * Return: void
+ * Return: number of characters processed
  */
-void print_rot13(const char *str)
+int print_rot13(va_list list, flags_t *f)
 {
-	while (*str != '\0')
+	int i;
+	char rot13[] = "poiuytrewqasdfghjklmnbvcxzPOIUYTREWQASDFGHJKLMNBVCXZ";
+	char ROT13[] = "POIUYTREWQASDFGHJKLMNBVCXZpoiuytrewqasdfghjklmnbvcxz";
+	const char *input = va_arg(list, const char *);
+
+	if (input == NULL)
 	{
-		if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z'))
-		{
-			char base = (*str >= 'A' && *str >= 'Z') ? 'A' :  'a';
-		}
-		putchar(((*str - base + 13) % 26) + base);
+		return (0);
 	}
-	else
+	for (i = 0; input[i] != '\0'; i++)
 	{
 		putchar(*str);
 	}
@@ -34,19 +35,24 @@ int print_rot13(va_list args)
 	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char ROT13[] = "mnhvtvcxjdaezybditqpruksgfMNHVTVCXJDAEZYBDITQPRUKSGF";
 	char *s = va_arg(args, char *);
+		char c = input[i];
 
-	for (q = 0; s[q]; q++)
-	{
-		if (s[q] < 'A' || (s[q] > 'Z' && s[q] < 'a') || s[q] > 'z')
-			_putchar(s[q]);
+		if ((c >= 'a' && c <= 'z') ||
+				(c >= 'A' && c <= 'Z'))
+		{
+			char base = (c >= 'a' &&
+					c <= 'z') ? 'a' : 'A';
+			_putchar((c - base + 13) % 26 + base);
+		}
 		else
 		{
-			for (p = 0; p <= 52; p++)
+			for (i = 0; i <= 52; i++)
 			{
-				if (s[q] == rot13[p])
-					_putchar(ROT13[p]);
+				if (c == rot13[i])
+				_putchar (ROT13[i]);
+			_putchar(c);
 			}
 		}
 	}
-	return (q);
+	return (i);
 }
